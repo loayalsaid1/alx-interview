@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""A program to impelemnet a N-Queens problem"""
-"""
+"""A program to impelemnet a N-Queens problem
 
     Given an argument N, not less that 4
 
     return a list or lists each inner list represetn a position in the
     grid in on of the possible solutios
 """
+import sys
 
 
 def is_valid_position(row, column, previous_positions):
@@ -18,13 +18,11 @@ def is_valid_position(row, column, previous_positions):
     My code, my github, Ok???????
     But it's easy  BTW"""
     for position in previous_positions:
-        if (
-            position[0] == row
-            or position[1] == column
-            # Ok, just this one, This on is for diagnols.
-            # test it yourself and see
-            or abs(position[0] - row) == abs(position[1] - column)
-        ):
+        if (position[0] == row or
+                position[1] == column or
+                # Ok, just this one, This on is for diagnols.
+                # # test it yourself and see
+                abs(position[0] - row) == abs(position[1] - column)):
             return False
 
     return True
@@ -54,13 +52,11 @@ def solve(solutions, current_path, n, row):
 
 
 if __name__ == "__main__":
-    from sys import argv
-
-    if len(argv) != 2:
+    if len(sys.argv) != 2:
         print("Usage: nqueens N")
         exit(1)
     try:
-        n = int(argv[1])
+        n = int(sys.argv[1])
     except ValueError:
         print("N must be a number")
         exit(1)
