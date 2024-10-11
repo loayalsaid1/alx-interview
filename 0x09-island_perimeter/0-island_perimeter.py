@@ -63,6 +63,7 @@ end in the direction
 
 
 def island_perimeter(grid):
+    """Nieve solution to it"""
     rows = len(grid)
     cols = len(grid[0])
     perimeter = 0
